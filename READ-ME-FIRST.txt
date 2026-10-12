@@ -1,0 +1,19 @@
+IKIGAI+ WEBSITES (colleague's version, with logos and links fixed)
+=================================================================
+
+TO SEE THE PAGES
+Double-click index.html (the 1-hour page) or ikigai-test.html (the Test page).
+
+IMPORTANT
+Keep the two .html files and the "assets" folder together in this same folder.
+If they are separated, the logos disappear and the links between pages break.
+
+WHAT WAS CHANGED FROM THE COLLEAGUE'S FILES
+- Added the assets folder with the LPI, UNESCO, UNU logos
+- Replaced [PARTNER LOGO TBC] with the CY Cergy Paris Université logo
+- Links between the two pages work when both files sit in this folder
+
+STILL TO CONFIRM
+- Wording (certificate / game plan / free / Stellantis Foundation) vs the copy document
+- "Get started" app link (currently #)
+- Privacy and Terms links (currently #)
