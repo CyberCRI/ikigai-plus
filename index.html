@@ -40,8 +40,6 @@ p{margin:0}
 .by{display:flex;flex-direction:column;gap:2px;padding-left:22px;border-left:1px solid var(--line);line-height:1.3}
 .by-org{font-size:14px;font-weight:700;color:var(--ink)}
 .by-cred{font-size:13px;color:var(--muted)}
-.header-lockup{display:block;height:72px;width:auto;max-width:100%}
-@media (max-width:640px){.header-lockup{height:auto;width:100%;max-width:340px}}
 @media (max-width:640px){
   .by{flex-basis:100%;padding:10px 0 0;border-left:0;border-top:1px solid var(--line)}
   .wordmark{font-size:30px}
@@ -101,6 +99,8 @@ p{margin:0}
 .stat b{font-family:var(--display);font-weight:700;font-size:44px;line-height:1.05;color:#000}
 .stat span{font-size:15px}
 .award{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:500;color:#000}
+a.award{text-decoration:none}
+a.award:hover{border-color:#000;color:#000}
 .award::before{content:"\2726";color:#D99A00;font-size:16px}
 @media (max-width:640px){
   .stats{display:grid;grid-template-columns:1fr;gap:18px;width:100%}
@@ -148,8 +148,6 @@ p{margin:0}
 .cred-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .cred-row span{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;color:#000}
 @media (max-width:640px){.creds-desktop{display:none !important}.creds-mobile{display:flex}.partner-slot{width:100%;height:72px}}
-.creds .partner-logo{display:block;width:220px;max-width:220px;height:auto;flex:none}
-@media (max-width:640px){.creds .partner-logo{width:180px}}
 .partner-slot{width:220px;height:88px;border:2px dashed #A0A0A0;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;color:var(--muted);padding:8px}
 .who-text{display:flex;flex-direction:column;gap:20px;max-width:720px}
 .who-text p{font-size:19px}
@@ -186,9 +184,6 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     <a class="lockup" href="#" aria-label="Ikigai+ home">
       <span class="wordmark">Ikigai<span class="plus">+</span></span>
     </a>
-    <div class="by">
-      <img class="header-lockup" src="./assets/lpi-lockup-en.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub.">
-    </div>
   </div>
 </header>
 
@@ -206,7 +201,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           <li style="--c:var(--paid)">A verified certificate</li>
         </ul>
         <div class="cta-block">
-          <a class="btn btn-primary" href="#">Get started</a>
+          <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
           <p class="cta-note">Access paid for you by the Stellantis Foundation.</p>
           <a class="quick-link" href="ikigai-test.html">Only got 30 seconds? Try the quick test &rarr;</a>
         </div>
@@ -223,15 +218,18 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
                 <stop offset="1" stop-color="#FFCC00" stop-opacity="0"/>
               </radialGradient>
             </defs>
-            <circle class="disc" cx="200" cy="108" r="106" fill="#FF9473" fill-opacity=".55" stroke="#E0714B" stroke-width="2"/>
-            <circle class="disc" cx="292" cy="200" r="106" fill="#FFCC00" fill-opacity=".55" stroke="#D9A900" stroke-width="2"/>
-            <circle class="disc" cx="200" cy="292" r="106" fill="#00DBA7" fill-opacity=".45" stroke="#00A87F" stroke-width="2"/>
-            <circle class="disc" cx="108" cy="200" r="106" fill="#6CD5FF" fill-opacity=".55" stroke="#2FA8D8" stroke-width="2"/>
+            <circle class="disc" cx="200" cy="120" r="116" fill="#FF9473" fill-opacity=".55"/>
+            <circle class="disc" cx="280" cy="200" r="116" fill="#FFCC00" fill-opacity=".55"/>
+            <circle class="disc" cx="200" cy="280" r="116" fill="#00DBA7" fill-opacity=".45"/>
+            <circle class="disc" cx="120" cy="200" r="116" fill="#6CD5FF" fill-opacity=".55"/>
+            <g fill="none" stroke="#FFFFFF" stroke-width="2.5" aria-hidden="true">
+              <circle cx="200" cy="120" r="116"/><circle cx="280" cy="200" r="116"/><circle cx="200" cy="280" r="116"/><circle cx="120" cy="200" r="116"/>
+            </g>
             <circle class="glow" cx="200" cy="200" r="78" fill="url(#glow1h)"/>
-            <text class="lbl" x="200" y="46"><tspan x="200">What</tspan><tspan x="200" dy="19">you love</tspan></text>
-            <text class="lbl" x="346" y="191"><tspan x="346">What you're</tspan><tspan x="346" dy="19">good at</tspan></text>
-            <text class="lbl" x="200" y="342"><tspan x="200">What the</tspan><tspan x="200" dy="19">world needs</tspan></text>
-            <text class="lbl" x="54" y="191"><tspan x="54">What you can</tspan><tspan x="54" dy="19">be paid for</tspan></text>
+            <text class="lbl" x="200" y="50"><tspan x="200">What</tspan><tspan x="200" dy="20">you love</tspan></text>
+            <text class="lbl" x="342" y="182"><tspan x="342">What</tspan><tspan x="342" dy="20">you're</tspan><tspan x="342" dy="20">good at</tspan></text>
+            <text class="lbl" x="200" y="338"><tspan x="200">What the</tspan><tspan x="200" dy="20">world needs</tspan></text>
+            <text class="lbl" x="58" y="182"><tspan x="58">What you</tspan><tspan x="58" dy="20">can be</tspan><tspan x="58" dy="20">paid for</tspan></text>
           </svg>
           <span class="centre-pill" aria-hidden="true">Your Ikigai</span>
         </div>
@@ -247,7 +245,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
         <div class="stat"><b>5+</b><span>years of research</span></div>
         <div class="stat"><b>75%</b><span>rated it very positively</span></div>
       </div>
-      <span class="award">2026 GMA Award · AI Special Recognition</span>
+      <a class="award" href="https://mooc.global/conferencemooc-global/gma-awards-2026-winners-announced/" target="_blank" rel="noopener">2026 GMA Award · AI Special Recognition</a>
     </div>
   </section>
 
@@ -311,7 +309,6 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           <div class="cred-row"><span>Is a UNESCO Category 2 Institute</span><img src="./assets/unesco-logo.png" alt="UNESCO" style="width:120px"></div>
           <div class="cred-row"><span>Is a United Nations University Hub</span><img src="./assets/unu-logo.png" alt="United Nations University" style="width:100px"></div>
         </div>
-        <img class="partner-logo" src="./assets/cy-cergy-logo.png" alt="CY Cergy Paris Université">
       </div>
       <div class="who-text">
         <p>Ikigai+ was created by the Learning Planet Institute in Paris, which has spent 20 years inventing new ways to learn. With UNESCO and the United Nations University, we're building a Planetary Academy for young people who want to help tackle the world's big challenges.</p>
@@ -378,7 +375,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     <div class="wrap">
       <div class="close-cta">
         <h2>Start with <em>one hour.</em></h2>
-        <a class="btn btn-yellow" href="#">Get started</a>
+        <a class="btn btn-yellow" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
         <p class="cta-note">Access paid for you by the Stellantis Foundation.</p>
       </div>
       <p class="legal">Ikigai+ is an initiative of the Learning Planet Institute, a UNESCO Category II Institute and United Nations University Hub. <a href="#">Privacy</a> · <a href="#">Terms</a> <!-- [PRIVACY AND TERMS LINKS TBC] --></p>

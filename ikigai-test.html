@@ -38,8 +38,6 @@ p{margin:0}
 .by{display:flex;flex-direction:column;gap:2px;padding-left:22px;border-left:1px solid var(--line);line-height:1.3}
 .by-org{font-size:14px;font-weight:700;color:var(--ink)}
 .by-cred{font-size:13px;color:var(--muted)}
-.header-lockup{display:block;height:72px;width:auto;max-width:100%}
-@media (max-width:640px){.header-lockup{height:auto;width:100%;max-width:340px}}
 @media (max-width:640px){
   .by{flex-basis:100%;padding:10px 0 0;border-left:0;border-top:1px solid var(--line)}
   .wordmark{font-size:30px}
@@ -76,10 +74,10 @@ p{margin:0}
 .tag{flex:none;padding:4px 14px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-variant-numeric:tabular-nums;transition:background-color .25s,color .25s}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{display:inline-block;width:22px;height:0;border-top:2px solid #777}
-.legend .l-starving i{border-top:1.5px solid #A9A69E}
-.legend .l-thin i{border-top:2.5px solid #777}
-.legend .l-fed i{border-top:4px solid #000}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%}
+.legend .l-starving i{background:#DAD7CF}
+.legend .l-thin i{background:rgba(255,204,0,.35)}
+.legend .l-fed i{background:#FFCC00}
 
 /* Range input */
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;margin:0;background:transparent;cursor:pointer;--p:50%}
@@ -154,9 +152,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <a class="lockup" href="index.html" aria-label="Ikigai+ home">
       <span class="wordmark">Ikigai<span class="plus">+</span></span>
     </a>
-    <div class="by">
-      <img class="header-lockup" src="./assets/lpi-lockup-en.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub.">
-    </div>
   </div>
 </header>
 
@@ -189,15 +184,18 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
                 <stop offset="1" stop-color="#FFCC00" stop-opacity="0"/>
               </radialGradient>
             </defs>
-            <circle class="disc" id="c-love"  cx="200" cy="108" r="106"/>
-            <circle class="disc" id="c-good"  cx="292" cy="200" r="106"/>
-            <circle class="disc" id="c-world" cx="200" cy="292" r="106"/>
-            <circle class="disc" id="c-paid"  cx="108" cy="200" r="106"/>
+            <circle class="disc" id="c-love"  cx="200" cy="120" r="116"/>
+            <circle class="disc" id="c-good"  cx="280" cy="200" r="116"/>
+            <circle class="disc" id="c-world" cx="200" cy="280" r="116"/>
+            <circle class="disc" id="c-paid"  cx="120" cy="200" r="116"/>
+            <g fill="none" stroke="#FFFFFF" stroke-width="2.5" aria-hidden="true">
+              <circle cx="200" cy="120" r="116"/><circle cx="280" cy="200" r="116"/><circle cx="200" cy="280" r="116"/><circle cx="120" cy="200" r="116"/>
+            </g>
             <circle class="glow" id="glow-c" cx="200" cy="200" r="100" fill="url(#glow)" style="opacity:0;transform:scale(.34)"/>
-            <text class="lbl" x="200" y="46"><tspan x="200">What</tspan><tspan x="200" dy="19">you love</tspan></text>
-            <text class="lbl" x="346" y="191"><tspan x="346">What you're</tspan><tspan x="346" dy="19">good at</tspan></text>
-            <text class="lbl" x="200" y="342"><tspan x="200">What the</tspan><tspan x="200" dy="19">world needs</tspan></text>
-            <text class="lbl" x="54" y="191"><tspan x="54">What you can</tspan><tspan x="54" dy="19">be paid for</tspan></text>
+            <text class="lbl" x="200" y="50"><tspan x="200">What</tspan><tspan x="200" dy="20">you love</tspan></text>
+            <text class="lbl" x="342" y="182"><tspan x="342">What</tspan><tspan x="342" dy="20">you're</tspan><tspan x="342" dy="20">good at</tspan></text>
+            <text class="lbl" x="200" y="338"><tspan x="200">What the</tspan><tspan x="200" dy="20">world needs</tspan></text>
+            <text class="lbl" x="58" y="182"><tspan x="58">What you</tspan><tspan x="58" dy="20">can be</tspan><tspan x="58" dy="20">paid for</tspan></text>
           </svg>
           <button type="button" class="reveal-btn" id="reveal"><span class="sym" aria-hidden="true">&#10022;</span>Reveal</button>
         </div>
@@ -369,13 +367,13 @@ function paintDiagram(){
   DIMS.forEach(d => {
     const c = document.getElementById('c-' + d.key).style;
     if (!snap){ // neutral, pre-reveal
-      c.fill = d.fill; c.fillOpacity = .14; c.stroke = d.stroke; c.strokeOpacity = .5; c.strokeWidth = 1.5; c.strokeDasharray = '1000 0';
+      c.fill = d.fill; c.fillOpacity = .22; c.strokeWidth = 0;
       return;
     }
     const v = snap[d.key], l = level(v);
-    if (l === 'low'){  c.fill = '#ECEAE4'; c.fillOpacity = .35; c.stroke = '#A9A69E'; c.strokeOpacity = .9; c.strokeWidth = 1.5; c.strokeDasharray = '1000 0'; }
-    if (l === 'mid'){  c.fill = d.fill;    c.fillOpacity = .22; c.stroke = d.stroke;  c.strokeOpacity = .75; c.strokeWidth = 2.5; c.strokeDasharray = '1000 0'; }
-    if (l === 'high'){ c.fill = d.fill;    c.fillOpacity = (.45 + (v - HIGH) / 25 * .3).toFixed(3); c.stroke = d.stroke; c.strokeOpacity = 1; c.strokeWidth = 5; c.strokeDasharray = '1000 0'; }
+    if (l === 'low'){  c.fill = '#DAD7CF'; c.fillOpacity = .55; c.strokeWidth = 0; }
+    if (l === 'mid'){  c.fill = d.fill;    c.fillOpacity = .3; c.strokeWidth = 0; }
+    if (l === 'high'){ c.fill = d.fill;    c.fillOpacity = (.45 + (v - HIGH) / 25 * .3).toFixed(3); c.strokeWidth = 0; }
   });
   const g = document.getElementById('glow-c').style;
   const avg = snap ? DIMS.reduce((s, d) => s + snap[d.key], 0) / 4 : 0;
