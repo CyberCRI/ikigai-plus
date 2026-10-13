@@ -35,13 +35,13 @@ p{margin:0}
 .site-header .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
 .lockup{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .lockup:hover{color:var(--ink)}
-.mark{width:38px;height:38px;flex:none}
-.mark circle{mix-blend-mode:multiply}
 .wordmark{font-family:var(--display);font-weight:700;font-size:32px;line-height:1;letter-spacing:-.01em}
 .wordmark .plus{display:inline-block;margin-left:1px;background:linear-gradient(135deg,#D99A00 0%,#E07A2E 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .by{display:flex;flex-direction:column;gap:2px;padding-left:22px;border-left:1px solid var(--line);line-height:1.3}
 .by-org{font-size:14px;font-weight:700;color:var(--ink)}
 .by-cred{font-size:13px;color:var(--muted)}
+.header-lockup{display:block;height:72px;width:auto;max-width:100%}
+@media (max-width:640px){.header-lockup{height:auto;width:100%;max-width:340px}}
 @media (max-width:640px){
   .by{flex-basis:100%;padding:10px 0 0;border-left:0;border-top:1px solid var(--line)}
   .wordmark{font-size:30px}
@@ -184,17 +184,10 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
 <header class="site-header">
   <div class="wrap">
     <a class="lockup" href="#" aria-label="Ikigai+ home">
-      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="12.5" r="10" fill="#FF9473"/>
-        <circle cx="27.5" cy="20" r="10" fill="#FFCC00"/>
-        <circle cx="20" cy="27.5" r="10" fill="#00DBA7"/>
-        <circle cx="12.5" cy="20" r="10" fill="#6CD5FF"/>
-      </svg>
       <span class="wordmark">Ikigai<span class="plus">+</span></span>
     </a>
     <div class="by">
-      <span class="by-org">by the Learning Planet Institute</span>
-      <span class="by-cred">UNESCO Category II Institute · United Nations University Hub</span>
+      <img class="header-lockup" src="./assets/lpi-lockup-en.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub.">
     </div>
   </div>
 </header>
@@ -230,10 +223,10 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
                 <stop offset="1" stop-color="#FFCC00" stop-opacity="0"/>
               </radialGradient>
             </defs>
-            <circle class="disc" cx="200" cy="108" r="106" fill="#FF9473" fill-opacity=".55" stroke="#E0714B" stroke-width="2" stroke-dasharray="14 7"/>
-            <circle class="disc" cx="292" cy="200" r="106" fill="#FFCC00" fill-opacity=".55" stroke="#D9A900" stroke-width="2" stroke-dasharray="14 7"/>
-            <circle class="disc" cx="200" cy="292" r="106" fill="#00DBA7" fill-opacity=".45" stroke="#00A87F" stroke-width="2" stroke-dasharray="14 7"/>
-            <circle class="disc" cx="108" cy="200" r="106" fill="#6CD5FF" fill-opacity=".55" stroke="#2FA8D8" stroke-width="2" stroke-dasharray="14 7"/>
+            <circle class="disc" cx="200" cy="108" r="106" fill="#FF9473" fill-opacity=".55" stroke="#E0714B" stroke-width="2"/>
+            <circle class="disc" cx="292" cy="200" r="106" fill="#FFCC00" fill-opacity=".55" stroke="#D9A900" stroke-width="2"/>
+            <circle class="disc" cx="200" cy="292" r="106" fill="#00DBA7" fill-opacity=".45" stroke="#00A87F" stroke-width="2"/>
+            <circle class="disc" cx="108" cy="200" r="106" fill="#6CD5FF" fill-opacity=".55" stroke="#2FA8D8" stroke-width="2"/>
             <circle class="glow" cx="200" cy="200" r="78" fill="url(#glow1h)"/>
             <text class="lbl" x="200" y="46"><tspan x="200">What</tspan><tspan x="200" dy="19">you love</tspan></text>
             <text class="lbl" x="346" y="191"><tspan x="346">What you're</tspan><tspan x="346" dy="19">good at</tspan></text>
