@@ -109,8 +109,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .result .body{font-size:17px;color:var(--text)}
 .result .summary{font-size:14px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line)}
 .result .summary b{color:#000;font-weight:700}
+@media (max-width:640px){.result .summary .lvl{display:block;padding:2px 0}.result .summary .sep{display:none}}
 .result .note{font-size:14px;color:var(--muted)}
-.result .btn{align-self:flex-start;margin-top:6px}
+.result .btn{align-self:flex-start;margin-top:6px;white-space:nowrap}
+.lbl-short{display:none}
+@media (max-width:640px){.lbl-long{display:none}.lbl-short{display:inline}.result .btn{padding:0 16px;font-size:18px}}
 
 @media (max-width:860px){
   .tool-grid{grid-template-columns:1fr;gap:36px}
@@ -327,7 +330,7 @@ function summaryHTML(vals){
   DIMS.forEach(d => groups[level(vals[d.key])].push(d.short));
   if (groups.high.length === 4) return 'All four are fed. The work now is keeping them there.';
   return ['low','mid','high'].filter(l => groups[l].length)
-    .map(l => '<b>' + LEVEL_LABEL[l] + ':</b> ' + groups[l].join(', ')).join(' &nbsp;·&nbsp; ');
+    .map(l => '<span class="lvl"><b>' + LEVEL_LABEL[l] + ':</b> ' + groups[l].join(', ') + '</span>').join('<span class="sep"> &nbsp;·&nbsp; </span>');
 }
 
 // ---------- State ----------
@@ -406,7 +409,7 @@ function paintResult(){
       '<h2>' + title + '</h2>' +
       '<p class="body">' + body + '</p>' +
       '<p class="summary">' + summaryHTML(snap) + '</p>' +
-      '<a class="btn btn-primary" href="index.html">Go deeper in the free 1-hour Ikigai+</a>' +
+      '<a class="btn btn-primary" href="index.html"><span class="lbl-long">Go deeper in the free 1-hour Ikigai+</span><span class="lbl-short">Try the free 1-hour Ikigai+</span></a>' +
       '<p class="note">This is a snapshot, not a verdict. Move the sliders and press Update to explore.</p>' +
     '</article>';
 }
