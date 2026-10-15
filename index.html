@@ -13,7 +13,7 @@
 <style>
 :root{
   --ink:#000;--text:#2E2E2E;--muted:#5C5C5C;--paper:#F5F5F3;--chip:#EDEDE9;--line:#DADAD6;
-  --green:#41825A;--green-dark:#2F6A47;--gold:#FFCC00;--gold-hover:#FFDB4D;
+  --green:#41825A;--green-dark:#2F6A47;--blue:#6CD5FF;--blue-hover:#9BE2FF;--gold:#FFCC00;--gold-hover:#FFDB4D;
   --love:#FF9473;--love-d:#E0714B;--good:#FFCC00;--good-d:#D9A900;
   --world:#00DBA7;--world-d:#00A87F;--paid:#6CD5FF;--paid-d:#2FA8D8;
   --display:'Archivo Narrow','Arial Narrow',sans-serif;--body:'Roboto',system-ui,sans-serif;
@@ -23,7 +23,7 @@
 [hidden]{display:none !important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6}
-a{color:var(--green-dark)}a:hover{color:#000}
+a{color:#000;text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:#000;text-decoration-color:var(--love);text-decoration-thickness:2px}
 a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #000;outline-offset:3px}
 h1,h2,h3{margin:0;color:var(--ink);font-family:var(--display)}
 p{margin:0}
@@ -36,7 +36,7 @@ p{margin:0}
 .lockup{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .lockup:hover{color:var(--ink)}
 .wordmark{font-family:var(--display);font-weight:700;font-size:32px;line-height:1;letter-spacing:-.01em}
-.wordmark .plus{display:inline-block;margin-left:1px;background:linear-gradient(135deg,#D99A00 0%,#E07A2E 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wordmark .plus{display:inline-block;margin-left:1px;color:#FFCC00}
 .by{display:flex;flex-direction:column;gap:2px;padding-left:22px;border-left:1px solid var(--line);line-height:1.3}
 .by-org{font-size:14px;font-weight:700;color:var(--ink)}
 .by-cred{font-size:13px;color:var(--muted)}
@@ -47,8 +47,8 @@ p{margin:0}
 
 /* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 44px;border-radius:999px;font-weight:700;font-size:19px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
-.btn-primary{background:var(--green);color:#fff}
-.btn-primary:hover{background:var(--green-dark);color:#fff}
+.btn-primary{background:var(--blue);color:#000}
+.btn-primary:hover{background:var(--blue-hover);color:#000}
 .btn-yellow{background:var(--gold);color:#000}
 .btn-yellow:hover{background:var(--gold-hover);color:#000}
 @media (max-width:640px){.btn{display:flex;width:100%;padding:0 24px}}
@@ -61,9 +61,9 @@ p{margin:0}
 .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center;padding-top:48px;padding-bottom:88px}
 .hero-text{display:flex;flex-direction:column;gap:26px}
 .hero h1{font-weight:400;font-size:clamp(46px,6.6vw,80px);line-height:1.02;letter-spacing:-.01em}
-.hero h1 em{font-weight:700;font-style:italic;background:linear-gradient(transparent 68%,rgba(255,204,0,.55) 68%,rgba(255,204,0,.55) 92%,transparent 92%);padding:0 .04em}
+.hero h1 em{font-weight:700;font-style:italic;background:linear-gradient(transparent 68%,#FFCC00 68%,#FFCC00 92%,transparent 92%);padding:0 .04em}
 .lead{font-size:21px;line-height:1.5;max-width:26em;color:var(--text)}
-.define{font-size:15px;color:var(--muted);max-width:32em}
+.define{font-size:15px;color:var(--muted);max-width:30em;margin:18px auto 0;text-align:center}
 .define b{color:var(--ink);font-weight:500}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .chips li{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.85);border:1px solid var(--line);color:#000;font-size:15px;font-weight:500}
@@ -98,10 +98,9 @@ p{margin:0}
 .stat{display:flex;flex-direction:column;gap:2px}
 .stat b{font-family:var(--display);font-weight:700;font-size:44px;line-height:1.05;color:#000}
 .stat span{font-size:15px}
-.award{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:500;color:#000}
-a.award{text-decoration:none}
-a.award:hover{border-color:#000;color:#000}
-.award::before{content:"\2726";color:#D99A00;font-size:16px}
+.award{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:22px;font-weight:700;color:#000;text-decoration:none}
+.award .trophy{width:30px;height:30px;flex:none}
+.award:hover span{text-decoration:underline;text-decoration-color:var(--love);text-decoration-thickness:2px;text-underline-offset:4px}
 @media (max-width:640px){
   .stats{display:grid;grid-template-columns:1fr;gap:18px;width:100%}
   .stat{flex-direction:column;gap:2px}
@@ -115,10 +114,18 @@ a.award:hover{border-color:#000;color:#000}
 .section .wrap{display:flex;flex-direction:column;gap:40px}
 .h2{font-weight:700;font-style:italic;font-size:clamp(36px,5vw,52px);line-height:1.05}
 .intro{display:flex;flex-direction:column;gap:16px;max-width:640px}
-.intro p{font-size:19px}
+.intro p,.intro-note{font-size:19px;color:var(--text);max-width:640px}
 @media (max-width:640px){.section{padding-top:64px;padding-bottom:64px}.section .wrap{gap:30px}}
 
 /* Steps */
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
+.facts li{display:inline-flex;align-items:center;gap:9px;font-size:17px;font-weight:500;color:#000}
+.facts li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.factbar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.factbar li{padding:22px 20px;border-left:1px solid var(--line);font-family:var(--display);font-size:22px;font-weight:700;color:#000;line-height:1.15}
+.factbar li:first-child{border-left:0;padding-left:0}
+.factbar li::before{content:"";display:block;width:28px;height:4px;border-radius:2px;background:var(--c);margin-bottom:12px}
+@media (max-width:640px){.factbar{grid-template-columns:1fr 1fr}.factbar li{padding:18px 14px;font-size:19px}.factbar li:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}.factbar li:nth-child(4){border-top:1px solid var(--line)}.facts{gap:10px 20px}.facts li{font-size:16px}}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:s}
 .steps li{background:var(--paper);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px;counter-increment:s}
 .steps li::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#000;font-family:var(--display);font-weight:700;font-size:22px;line-height:1}
@@ -135,10 +142,10 @@ a.award:hover{border-color:#000;color:#000}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .card{background:#fff;border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:22px}
 .card h3{font-weight:700;font-size:32px;line-height:1.1}
-.card .kicker{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-dark)}
+.card .kicker{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#000}
 .ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
 .ticks li{display:flex;gap:14px;align-items:baseline}
-.ticks li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:#82B45F;transform:translateY(-1px)}
+.ticks li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:#00DBA7;transform:translateY(-1px)}
 @media (max-width:860px){.cards{grid-template-columns:1fr;gap:18px}.card{padding:28px;border-radius:24px}.card h3{font-size:28px}}
 
 /* Who */
@@ -160,21 +167,53 @@ details{border-top:1px solid var(--line)}
 .faq-col details:last-child{border-bottom:1px solid var(--line)}
 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:44px;padding:20px 0;font-family:var(--display);font-weight:600;font-size:24px;line-height:1.2;color:#000}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";flex:none;font-family:var(--body);font-size:28px;line-height:1;color:var(--green-dark)}
+summary::after{content:"+";flex:none;font-family:var(--body);font-size:28px;line-height:1;color:#000}
 details[open] summary::after{content:"\2212"}
 details p{padding:0 0 22px;font-size:17px;max-width:36em}
 @media (max-width:860px){.faq{grid-template-columns:1fr}.faq-col:first-child details:last-child{border-bottom:0}summary{font-size:22px}details p{font-size:16px}}
 
 /* Close */
-.close{background:#000;color:#fff}
-.close .wrap{display:flex;flex-direction:column;gap:56px;padding-top:88px;padding-bottom:44px}
+.close{background:#fff}
+.close .wrap{padding-top:88px;padding-bottom:96px}
 .close-cta{display:flex;flex-direction:column;gap:26px;align-items:flex-start}
-.close h2{color:#fff;font-weight:700;font-style:italic;font-size:clamp(44px,6.4vw,72px);line-height:1.02}
-.close h2 em{font-style:italic;background:linear-gradient(90deg,#FFCC00,#FF9473);-webkit-background-clip:text;background-clip:text;color:transparent}
-.close .cta-note{color:#fff}
-.close a{color:#fff}
-.legal{padding-top:26px;border-top:1px solid rgba(255,255,255,.35);font-size:13px;line-height:1.6;max-width:52em}
-@media (max-width:640px){.close .wrap{padding-top:64px;padding-bottom:32px;gap:44px}.close-cta{align-items:stretch}.close .cta-note{text-align:center}}
+.close h2{color:#000;font-weight:700;font-style:italic;font-size:clamp(44px,6.4vw,72px);line-height:1.02}
+.close h2 em{background:linear-gradient(transparent 68%,#FFCC00 68%,#FFCC00 92%,transparent 92%);padding:0 .04em}
+.site-footer{background:#000;color:#fff}
+.site-footer .wrap{display:grid;grid-template-columns:auto auto 1fr;gap:28px 56px;align-items:center;padding-top:48px;padding-bottom:48px}
+.footer-logo{display:block;line-height:0}
+.footer-lockup{width:420px;max-width:100%;height:auto;display:block}
+.footer-text{display:flex;flex-direction:column;gap:12px}
+.footer-text p{margin:0}
+.site-footer .footer-link{align-self:flex-start;color:#fff;font-size:14px;font-weight:500;text-decoration:underline;text-decoration-color:rgba(255,255,255,.45);text-underline-offset:4px}
+.site-footer .footer-link:hover{color:#fff;text-decoration-color:var(--gold)}
+.site-footer a:focus-visible{outline-color:#fff}
+.footer-mark{color:#fff;font-size:30px}
+.footer-text{font-size:14px;line-height:1.6;color:#fff;max-width:34em;justify-self:end}
+@media (max-width:640px){.close .wrap{padding-top:64px;padding-bottom:72px}.close-cta{align-items:stretch}.close .cta-note{text-align:center}
+  .site-footer .wrap{grid-template-columns:1fr;gap:20px;padding-top:40px;padding-bottom:40px}.footer-lockup{width:100%}.footer-text{justify-self:start}}
+
+.award-stat{text-decoration:none;color:inherit}
+.award-stat b{display:flex;align-items:flex-end;height:46px}
+.award-stat .trophy{width:58px;height:58px;margin:-8px 0 -4px -6px}
+.award-stat:hover span{text-decoration:underline;text-decoration-color:var(--love);text-decoration-thickness:2px;text-underline-offset:3px}
+.award-line{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:20px;color:#000;text-decoration:none}
+.award-line .trophy{width:28px;height:28px}
+.award-line:hover span{text-decoration:underline;text-decoration-color:var(--love);text-decoration-thickness:2px;text-underline-offset:4px}
+.proof.v-center .wrap{flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.proof.v-center .stats{justify-content:center;gap:24px 88px}
+.proof.v-center .stat{align-items:center}
+.proof.v-center .award-line{padding-top:22px;border-top:1px solid var(--line);width:min(560px,100%);justify-content:center}
+.under-proof{text-align:center;padding:22px 0 0}
+.proof.v-grid .wrap{display:block}
+.proof.v-grid .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.proof.v-grid .stat{align-items:center;text-align:center;padding:4px 16px;border-left:1px solid var(--line)}
+.proof.v-grid .stat:first-child{border-left:0}
+@media (max-width:640px){
+  .proof.v-center .stats{grid-template-columns:1fr;justify-items:center}
+  .proof.v-grid .stats{grid-template-columns:1fr 1fr;gap:22px 0}
+  .proof.v-grid .stat:nth-child(3){border-left:0}
+  .award-stat b{height:40px}.award-stat .trophy{width:50px;height:50px}
+}
 </style>
 </head>
 <body>
@@ -194,19 +233,12 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     <div class="wrap">
       <div class="hero-text">
         <h1>One hour to figure out <em>what matters to you.</em></h1>
-        <p class="lead">Explore what you love, what you're good at, what the world needs, and what you could get paid for.</p>
-        <ul class="chips" aria-label="At a glance">
-          <li style="--c:var(--love)">1 hour</li>
-          <li style="--c:var(--good)">100% free</li>
-          <li style="--c:var(--world)">Your personal game plan</li>
-          <li style="--c:var(--paid)">A verified certificate</li>
-        </ul>
+        <p class="lead">Explore your Ikigai, or life purpose, in an interactive AI-enhanced reflection.</p>
         <div class="cta-block">
           <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
-          <p class="cta-note">Access paid for you by the Stellantis Foundation.</p>
+          <p class="cta-note">Access paid for you by our donor.</p>
           <a class="quick-link" href="ikigai-test.html">Only got 30 seconds? Try the quick test &rarr;</a>
         </div>
-        <p class="define"><b>Ikigai</b> (生き甲斐) is a Japanese word for your reason to get up in the morning.</p>
       </div>
 
       <div class="hero-visual">
@@ -214,13 +246,13 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           <svg viewBox="0 0 400 400" aria-hidden="true">
             <defs>
               <radialGradient id="glow1h">
-                <stop offset="0" stop-color="#FFE57A" stop-opacity="1"/>
+                <stop offset="0" stop-color="#FFCC00" stop-opacity="1"/>
                 <stop offset=".55" stop-color="#FFCC00" stop-opacity=".55"/>
                 <stop offset="1" stop-color="#FFCC00" stop-opacity="0"/>
               </radialGradient>
             </defs>
             <circle class="disc" cx="200" cy="120" r="116" fill="#FF9473" fill-opacity=".55"/>
-            <circle class="disc" cx="280" cy="200" r="116" fill="#FFCC00" fill-opacity=".55"/>
+            <circle class="disc" cx="280" cy="200" r="116" fill="#FFCC00" fill-opacity=".8"/>
             <circle class="disc" cx="200" cy="280" r="116" fill="#00DBA7" fill-opacity=".45"/>
             <circle class="disc" cx="120" cy="200" r="116" fill="#6CD5FF" fill-opacity=".55"/>
             <g fill="none" stroke="#FFFFFF" stroke-width="2.5" aria-hidden="true">
@@ -234,27 +266,30 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           </svg>
           <span class="centre-pill" aria-hidden="true">Your Ikigai</span>
         </div>
+        <p class="define"><b>Ikigai</b> (生き甲斐) is a Japanese word for your reason to get up in the morning.</p>
       </div>
     </div>
   </section>
 
   <!-- Proof strip. Figures from the 2026 GMA Award application; reconcile before launch. -->
-  <section class="proof" aria-label="Ikigai+ in numbers">
+  <section class="proof v-center" aria-label="Ikigai+ in numbers">
     <div class="wrap">
       <div class="stats">
         <div class="stat"><b>12,700+</b><span>people have taken part</span></div>
         <div class="stat"><b>5+</b><span>years of research</span></div>
         <div class="stat"><b>80%</b><span>would recommend it to their friends</span></div>
       </div>
-      <a class="award" href="https://mooc.global/conferencemooc-global/gma-awards-2026-winners-announced/" target="_blank" rel="noopener">2026 GMA Award · AI Special Recognition</a>
     </div>
   </section>
+  <div class="wrap under-proof">
+      <a class="award-line" href="https://mooc.global/awards/global-mooc-online/" target="_blank" rel="noopener"><svg class="trophy" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4a5 5 0 0 1-10 0V3z" fill="#FFCC00" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 5H4v1.5A3.5 3.5 0 0 0 7.5 10M17 5h3v1.5A3.5 3.5 0 0 1 16.5 10M12 12v4M8.5 20h7M9.5 20l.5-4h4l.5 4" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>2026 GMA Award</span></a>
+  </div>
 
-  <!-- 2. How the hour works -->
+  <!-- 2. How it works -->
   <section class="section">
     <div class="wrap">
       <div class="intro">
-        <h2 class="h2">How the hour works</h2>
+        <h2 class="h2">How it works</h2>
         <p>An AI guide called Spark asks you questions, one step at a time. You answer in your own words, by typing or talking.</p>
       </div>
       <ol class="steps">
@@ -265,7 +300,8 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
         <li><span>Turn it into a project or job idea</span></li>
         <li><span>Choose a first step for this week</span></li>
       </ol>
-      <p class="muted" style="font-size:16px">At the start and at the end, you answer 12 quick questions, so you can see how your thinking moved.</p>
+      <ul class="facts" aria-label="At a glance"><li style="--c:var(--love)">1 hour</li><li style="--c:var(--good)">100% free</li><li style="--c:var(--world)">Your personal game plan</li><li style="--c:var(--paid)">A verified certificate</li></ul>
+      <p class="intro-note">At the start and at the end, you answer 12 quick questions, so you can see how your thinking progressed.</p>
     </div>
   </section>
 
@@ -287,7 +323,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           <span class="kicker">To show others</span>
           <h3>Your Ikigai certificate</h3>
           <ul class="ticks">
-            <li>Issued by the Learning Planet Institute</li>
+            <li>Issued by a UNESCO Category 2 Centre</li>
             <li>Add it to your CV, applications or LinkedIn</li>
             <li>A QR code lets anyone check it's real</li>
             <li>No exam, no grade: you earn it by completing the hour</li>
@@ -313,7 +349,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
       </div>
       <div class="who-text">
         <p>Ikigai+ was created by the Learning Planet Institute in Paris, which has spent 20 years inventing new ways to learn. With UNESCO and the United Nations University, we're building a Planetary Academy for young people who want to help tackle the world's big challenges.</p>
-        <p>Ikigai+ is part of the MOOD programme, the Planetary Academy's online courses and certificates. <a href="https://www.learningplanetinstitute.org/en/programs/inthemood/" target="_blank" rel="noopener" style="font-weight:500">Explore MOOD</a></p>
+        <p>Ikigai+ is part of the MOOD programme. <a href="https://www.learningplanetinstitute.org/en/programs/inthemood-climate/" target="_blank" rel="noopener" style="font-weight:500">Explore MOOD</a></p>
       </div>
     </div>
   </section>
@@ -326,7 +362,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
         <div class="faq-col">
           <details>
             <summary>Is it really free?</summary>
-            <p>Yes. No payment, no trial, no card details. Your access is paid for by the Stellantis Foundation.</p>
+            <p>Yes. No payment, no trial, no card details. Your access is paid for by our donor.</p>
           </details>
           <details>
             <summary>Do I need an account?</summary>
@@ -371,18 +407,29 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     </div>
   </section>
 
-  <!-- 6. Close and footer -->
+  <!-- 6. Closing call to action -->
   <section class="close">
     <div class="wrap">
       <div class="close-cta">
         <h2>Start with <em>one hour.</em></h2>
-        <a class="btn btn-yellow" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
-        <p class="cta-note">Access paid for you by the Stellantis Foundation.</p>
+        <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
+        <p class="cta-note">Access paid for you by our donor.</p>
       </div>
-      <p class="legal">Ikigai+ is an initiative of the Learning Planet Institute, a UNESCO Category II Institute and United Nations University Hub. <a href="#">Privacy</a> · <a href="#">Terms</a> <!-- [PRIVACY AND TERMS LINKS TBC] --></p>
     </div>
   </section>
 </main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="footer-logo" href="https://www.learningplanetinstitute.org/en/" target="_blank" rel="noopener"><img class="footer-lockup" src="./assets/lpi-lockup-white.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub."></a>
+    <span class="wordmark footer-mark">Ikigai<span class="plus">+</span></span>
+    <div class="footer-text">
+      <p>Ikigai+ is an initiative of the Learning Planet Institute, a UNESCO Category II Institute and United Nations University Hub.</p>
+      <a class="footer-link" href="https://www.learningplanetinstitute.org/en/" target="_blank" rel="noopener">learningplanetinstitute.org <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

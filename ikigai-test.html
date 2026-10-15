@@ -13,7 +13,7 @@
 <style>
 :root{
   --ink:#000;--text:#2E2E2E;--muted:#5C5C5C;--paper:#F5F5F3;--chip:#EDEDE9;--line:#DADAD6;
-  --green:#41825A;--green-dark:#2F6A47;--gold:#FFCC00;--gold-hover:#FFDB4D;
+  --green:#41825A;--green-dark:#2F6A47;--blue:#6CD5FF;--blue-hover:#9BE2FF;--gold:#FFCC00;--gold-hover:#FFDB4D;
   --display:'Archivo Narrow','Arial Narrow',sans-serif;--body:'Roboto',system-ui,sans-serif;
   --gutter:24px;--max:1160px;--ease:.6s ease;
 }
@@ -21,7 +21,7 @@
 [hidden]{display:none !important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6}
-a{color:var(--green-dark)}a:hover{color:#000}
+a{color:#000;text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:#000;text-decoration-color:var(--love);text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #000;outline-offset:3px}
 h1,h2,h3{margin:0;color:var(--ink);font-family:var(--display)}
 p{margin:0}
@@ -34,7 +34,7 @@ p{margin:0}
 .lockup{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .lockup:hover{color:var(--ink)}
 .wordmark{font-family:var(--display);font-weight:700;font-size:32px;line-height:1;letter-spacing:-.01em}
-.wordmark .plus{display:inline-block;margin-left:1px;background:linear-gradient(135deg,#D99A00 0%,#E07A2E 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wordmark .plus{display:inline-block;margin-left:1px;color:#FFCC00}
 .by{display:flex;flex-direction:column;gap:2px;padding-left:22px;border-left:1px solid var(--line);line-height:1.3}
 .by-org{font-size:14px;font-weight:700;color:var(--ink)}
 .by-cred{font-size:13px;color:var(--muted)}
@@ -45,8 +45,8 @@ p{margin:0}
 
 /* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 44px;border-radius:999px;font-weight:700;font-size:19px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
-.btn-primary{background:var(--green);color:#fff}
-.btn-primary:hover{background:var(--green-dark);color:#fff}
+.btn-primary{background:var(--blue);color:#000}
+.btn-primary:hover{background:var(--blue-hover);color:#000}
 .btn-yellow{background:var(--gold);color:#000}
 .btn-yellow:hover{background:var(--gold-hover);color:#000}
 @media (max-width:640px){.btn{display:flex;width:100%;padding:0 24px}}
@@ -56,7 +56,7 @@ p{margin:0}
 .intro::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 70% at 85% 30%,rgba(255,204,0,.20),rgba(255,204,0,0) 70%)}
 .intro .wrap{position:relative;display:flex;flex-direction:column;gap:24px;padding-top:44px;padding-bottom:60px}
 .intro h1{font-weight:400;font-size:clamp(50px,7.2vw,82px);line-height:1.02;letter-spacing:-.01em}
-.intro h1 em{font-weight:700;font-style:italic;background:linear-gradient(transparent 68%,rgba(255,204,0,.55) 68%,rgba(255,204,0,.55) 92%,transparent 92%);padding:0 .04em}
+.intro h1 em{font-weight:700;font-style:italic;background:linear-gradient(transparent 68%,#FFCC00 68%,#FFCC00 92%,transparent 92%);padding:0 .04em}
 .lead{font-size:21px;line-height:1.5;max-width:26em}
 .small-lines{display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--muted);max-width:34em}
 .small-lines b{color:var(--ink);font-weight:500}
@@ -94,7 +94,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .diagram .glow{transform-origin:200px 200px;transform-box:view-box;transition:transform var(--ease),opacity var(--ease)}
 .diagram .lbl{font-family:var(--display);font-weight:700;font-size:17px;fill:#000;text-anchor:middle}
 .reveal-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10;width:104px;height:104px;border-radius:50%;border:0;background:#000;color:#fff;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.1;cursor:pointer;box-shadow:0 0 0 5px rgba(255,255,255,.75),0 6px 18px rgba(0,0,0,.18);transition:opacity .2s,background-color .2s}
-.reveal-btn:hover:not(:disabled){background:var(--green-dark)}
+.reveal-btn:hover:not(:disabled){background:#2E2E2E}
 .reveal-btn:disabled{background:#fff;color:#8A8A8A;cursor:default;box-shadow:0 0 0 1px var(--line),0 4px 14px rgba(0,0,0,.08)}
 .reveal-btn:disabled .sym{color:#B5B2AA}
 .reveal-btn .sym{display:block;font-size:22px;line-height:1;margin-bottom:3px;color:var(--gold)}
@@ -104,7 +104,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .hint{font-size:16px;color:var(--muted)}
 .result{background:#fff;border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:16px;max-width:780px;animation:rise .5s ease}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green-dark)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#000}
 .result h2{font-weight:700;font-size:34px;line-height:1.1}
 .result .body{font-size:17px;color:var(--text)}
 .result .summary{font-size:14px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line)}
@@ -135,17 +135,29 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 }
 
 /* ---------- Strip to the 1-hour page ---------- */
-.close{background:#000;color:#fff}
-.close .wrap{display:flex;flex-direction:column;gap:56px;padding-top:72px;padding-bottom:40px}
+.close{background:#fff}
+.close .wrap{padding-top:80px;padding-bottom:88px}
 .close-row{display:flex;flex-wrap:wrap;gap:28px 56px;align-items:center;justify-content:space-between}
 .close-text{display:flex;flex-direction:column;gap:12px;max-width:640px}
-.close h2{color:#fff;font-weight:700;font-style:italic;font-size:clamp(38px,5vw,56px);line-height:1.04}
-.close h2 em{background:linear-gradient(90deg,#FFCC00,#FF9473);-webkit-background-clip:text;background-clip:text;color:transparent}
+.close h2{color:#000;font-weight:700;font-style:italic;font-size:clamp(38px,5vw,56px);line-height:1.04}
+.close h2 em{background:linear-gradient(transparent 68%,#FFCC00 68%,#FFCC00 92%,transparent 92%);padding:0 .04em}
 .close-text p{font-size:19px}
-.close a{color:#fff}
-.close .btn-yellow{color:#000}
-.legal{padding-top:26px;border-top:1px solid rgba(255,255,255,.35);font-size:13px;line-height:1.6;max-width:52em}
-@media (max-width:640px){.close .wrap{padding-top:60px;padding-bottom:32px;gap:44px}.close-row{flex-direction:column;align-items:stretch}}
+.close-cta{display:flex;flex-direction:column;align-items:center;gap:14px}
+.close .learn-more{font-size:16px;font-weight:500}
+@media (max-width:640px){.close-cta{align-items:stretch;text-align:center}.close-row{flex-direction:column;align-items:stretch}}
+.site-footer{background:#000;color:#fff}
+.site-footer .wrap{display:grid;grid-template-columns:auto auto 1fr;gap:28px 56px;align-items:center;padding-top:48px;padding-bottom:48px}
+.footer-logo{display:block;line-height:0}
+.footer-lockup{width:420px;max-width:100%;height:auto;display:block}
+.footer-text{display:flex;flex-direction:column;gap:12px}
+.footer-text p{margin:0}
+.site-footer .footer-link{align-self:flex-start;color:#fff;font-size:14px;font-weight:500;text-decoration:underline;text-decoration-color:rgba(255,255,255,.45);text-underline-offset:4px}
+.site-footer .footer-link:hover{color:#fff;text-decoration-color:var(--gold)}
+.site-footer a:focus-visible{outline-color:#fff}
+.footer-mark{color:#fff;font-size:30px}
+.footer-text{font-size:14px;line-height:1.6;color:#fff;max-width:34em;justify-self:end}
+@media (max-width:640px){.close .wrap{padding-top:64px;padding-bottom:72px}.close-cta{align-items:stretch}.close .cta-note{text-align:center}
+  .site-footer .wrap{grid-template-columns:1fr;gap:20px;padding-top:40px;padding-bottom:40px}.footer-lockup{width:100%}.footer-text{justify-self:start}}
 </style>
 </head>
 <body>
@@ -182,7 +194,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
           <svg viewBox="0 0 400 400" aria-hidden="true">
             <defs>
               <radialGradient id="glow">
-                <stop offset="0" stop-color="#FFE57A" stop-opacity="1"/>
+                <stop offset="0" stop-color="#FFCC00" stop-opacity="1"/>
                 <stop offset=".5" stop-color="#FFCC00" stop-opacity=".6"/>
                 <stop offset="1" stop-color="#FFCC00" stop-opacity="0"/>
               </radialGradient>
@@ -217,12 +229,26 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
           <h2>That was the <em>30-second</em> version.</h2>
           <p>In one hour, you turn it into a personal game plan and a verified certificate. Free.</p>
         </div>
-        <a class="btn btn-yellow" href="index.html">Try the free 1-hour Ikigai+</a>
+        <div class="close-cta">
+          <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Try the free 1-hour Ikigai+</a>
+          <a class="learn-more" href="index.html">Learn more</a>
+        </div>
       </div>
-      <p class="legal">Ikigai+ is an initiative of the Learning Planet Institute, a UNESCO Category II Institute and United Nations University Hub. It is part of the <a href="https://www.learningplanetinstitute.org/en/programs/inthemood/" target="_blank" rel="noopener">MOOD programme</a>. <a href="#">Privacy</a> · <a href="#">Terms</a> <!-- [PRIVACY AND TERMS LINKS TBC] --></p>
     </div>
   </section>
 </main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="footer-logo" href="https://www.learningplanetinstitute.org/en/" target="_blank" rel="noopener"><img class="footer-lockup" src="./assets/lpi-lockup-white.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub."></a>
+    <span class="wordmark footer-mark">Ikigai<span class="plus">+</span></span>
+    <div class="footer-text">
+      <p>Ikigai+ is an initiative of the Learning Planet Institute, a UNESCO Category II Institute and United Nations University Hub.</p>
+      <a class="footer-link" href="https://www.learningplanetinstitute.org/en/" target="_blank" rel="noopener">learningplanetinstitute.org <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</footer>
 
 <script>
 /* =========================================================
