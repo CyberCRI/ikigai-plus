@@ -6,6 +6,8 @@
 <title>Test your Ikigai | Learning Planet Institute</title>
 <meta name="description" content="Four sliders. 30 seconds. See which part of your Ikigai needs the most attention right now. Free, no account needed.">
 
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -44,16 +46,17 @@ p{margin:0}
 }
 
 /* ---------- Buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 44px;border-radius:999px;font-weight:700;font-size:19px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
-.btn-primary{background:var(--blue);color:#000}
-.btn-primary:hover{background:var(--blue-hover);color:#000}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 40px;border-radius:12px;font-weight:700;font-size:19px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
+.btn-primary{background:#000;color:#fff}
+.btn-primary:hover{background:#2E2E2E;color:#fff}
 .btn-yellow{background:var(--gold);color:#000}
 .btn-yellow:hover{background:var(--gold-hover);color:#000}
 @media (max-width:640px){.btn{display:flex;width:100%;padding:0 24px}}
 
 /* ---------- Intro ---------- */
 .intro{position:relative;overflow:hidden}
-.intro::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 70% at 85% 30%,rgba(255,204,0,.20),rgba(255,204,0,0) 70%)}
+.intro::before{content:"";position:absolute;right:-30%;top:0;bottom:0;width:min(1300px,125vw);height:auto;transform:none;pointer-events:none;background:radial-gradient(closest-side,rgba(255,204,0,.30),rgba(255,204,0,.14) 45%,rgba(255,204,0,.05) 78%,rgba(255,204,0,0) 100%)}
+@media (max-width:640px){.intro::before{right:-90%;width:200vw}}
 .intro .wrap{position:relative;display:flex;flex-direction:column;gap:24px;padding-top:44px;padding-bottom:60px}
 .intro h1{font-weight:400;font-size:clamp(50px,7.2vw,82px);line-height:1.02;letter-spacing:-.01em}
 .intro h1 em{font-weight:700;font-style:italic;background:linear-gradient(transparent 68%,#FFCC00 68%,#FFCC00 92%,transparent 92%);padding:0 .04em}
@@ -158,6 +161,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .footer-text{font-size:14px;line-height:1.6;color:#fff;max-width:34em;justify-self:end}
 @media (max-width:640px){.close .wrap{padding-top:64px;padding-bottom:72px}.close-cta{align-items:stretch}.close .cta-note{text-align:center}
   .site-footer .wrap{grid-template-columns:1fr;gap:20px;padding-top:40px;padding-bottom:40px}.footer-lockup{width:100%}.footer-text{justify-self:start}}
+
+.islands{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.islands li{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:10px;background:rgba(245,245,243,.9);font-size:15px;font-weight:500;color:#000}
+.islands li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
+.intro .lead b{color:#000;font-weight:700}
+.close-text .funded{font-size:15px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -174,11 +183,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   <section class="intro">
     <div class="wrap">
       <h1>Test your <em>Ikigai.</em></h1>
-      <p class="lead">Four sliders. 30 seconds. See which part of your Ikigai needs the most attention right now.</p>
-      <div class="small-lines">
-        <p><b>Ikigai</b> (生き甲斐) is a Japanese word for your reason to get up in the morning.</p>
-        <p>No account, no email. Nothing you enter is saved.</p>
-      </div>
+      <p class="lead"><b>Ikigai</b> (生き甲斐) is a Japanese word for your reason to get up in the morning. Assess your fulfillment in life in the test below.</p>
+      <ul class="islands">
+        <li style="--c:#FF9473">Four sliders</li>
+        <li style="--c:#FFCC00">30 seconds</li>
+        <li style="--c:#00DBA7">No account needed</li>
+      </ul>
     </div>
   </section>
 
@@ -186,7 +196,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <div class="wrap">
       <div class="tool-grid">
         <div class="sliders" id="sliders">
-          <p class="howto">Think about your days right now: classes, studies, projects, a side job. Move each slider to how it feels this month.</p>
+          <p class="howto">Think about your days right now: classes, studies, projects, a side job.</p>
           <!-- rows injected by script -->
         </div>
 
@@ -217,7 +227,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       </div>
 
       <div class="status" id="status" aria-live="polite">
-        <p class="hint" id="hint">Set the four sliders, then press <b>Reveal</b> in the middle of the diagram.</p>
       </div>
     </div>
   </section>
@@ -227,7 +236,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <div class="close-row">
         <div class="close-text">
           <h2>That was the <em>30-second</em> version.</h2>
-          <p>In one hour, you turn it into a personal game plan and a verified certificate. Free.</p>
+          <p>In one hour, clarify your Ikigai, create a game plan and get a verified certificate.</p>
+          <p class="funded">Funded by donors, free for learners.</p>
         </div>
         <div class="close-cta">
           <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Try the free 1-hour Ikigai+</a>
@@ -435,8 +445,7 @@ function paintResult(){
       '<h2>' + title + '</h2>' +
       '<p class="body">' + body + '</p>' +
       '<p class="summary">' + summaryHTML(snap) + '</p>' +
-      '<a class="btn btn-primary" href="index.html"><span class="lbl-long">Go deeper in the free 1-hour Ikigai+</span><span class="lbl-short">Try the free 1-hour Ikigai+</span></a>' +
-      '<p class="note">This is a snapshot, not a verdict. Move the sliders and press Update to explore.</p>' +
+      '<p class="note">Nothing is saved, so keep this result: take a screenshot, share it with a friend, or retake the test in 3 months and compare.</p>' +
     '</article>';
 }
 

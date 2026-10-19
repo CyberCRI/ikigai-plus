@@ -6,6 +6,8 @@
 <title>Find your Ikigai in 1 hour | Learning Planet Institute</title>
 <meta name="description" content="Free, 1 hour: figure out what matters to you. Leave with a personal game plan and a verified certificate from the Learning Planet Institute, a UNESCO Category II Institute and United Nations University Hub.">
 
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -46,9 +48,9 @@ p{margin:0}
 }
 
 /* ---------- Buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 44px;border-radius:999px;font-weight:700;font-size:19px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
-.btn-primary{background:var(--blue);color:#000}
-.btn-primary:hover{background:var(--blue-hover);color:#000}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 40px;border-radius:12px;font-weight:700;font-size:19px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
+.btn-primary{background:#000;color:#fff}
+.btn-primary:hover{background:#2E2E2E;color:#fff}
 .btn-yellow{background:var(--gold);color:#000}
 .btn-yellow:hover{background:var(--gold-hover);color:#000}
 @media (max-width:640px){.btn{display:flex;width:100%;padding:0 24px}}
@@ -74,7 +76,10 @@ p{margin:0}
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr;gap:28px;padding-top:24px;padding-bottom:64px}
   .hero-visual{order:-1}
-  .hero::before{background:radial-gradient(70% 38% at 50% 18%,rgba(255,204,0,.24),rgba(255,204,0,0) 70%)}
+  .hero::before{background:none}
+  .hero-visual{position:relative}
+  .hero-visual::before{content:"";position:absolute;left:50%;top:44%;width:150%;aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(255,204,0,.26),rgba(255,204,0,.12) 45%,rgba(255,204,0,.04) 75%,rgba(255,204,0,0) 100%)}
+  .hero-visual>*{position:relative;z-index:1}
   .cta-block{align-items:stretch}
   .cta-note,.quick-link{text-align:center}
   .lead{font-size:19px}
@@ -196,8 +201,8 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
 .award-stat b{display:flex;align-items:flex-end;height:46px}
 .award-stat .trophy{width:58px;height:58px;margin:-8px 0 -4px -6px}
 .award-stat:hover span{text-decoration:underline;text-decoration-color:var(--love);text-decoration-thickness:2px;text-underline-offset:3px}
-.award-line{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:20px;color:#000;text-decoration:none}
-.award-line .trophy{width:28px;height:28px}
+.award-line{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:500;font-size:17px;color:#000;text-decoration:none}
+.award-line .trophy{width:30px;height:30px}
 .award-line:hover span{text-decoration:underline;text-decoration-color:var(--love);text-decoration-thickness:2px;text-underline-offset:4px}
 .proof.v-center .wrap{flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .proof.v-center .stats{justify-content:center;gap:24px 88px}
@@ -213,6 +218,40 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
   .proof.v-grid .stats{grid-template-columns:1fr 1fr;gap:22px 0}
   .proof.v-grid .stat:nth-child(3){border-left:0}
   .award-stat b{height:40px}.award-stat .trophy{width:50px;height:50px}
+}
+
+/* Research section */
+.research .wrap{padding-top:72px;padding-bottom:64px;display:flex;flex-direction:column;gap:32px}
+.research .intro{max-width:720px}
+/* Proof strip with award card */
+.proof .wrap{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:28px 48px}
+.proof .stats{flex:1 1 520px;justify-content:flex-start}
+.proof-div{align-self:stretch;width:1px;background:var(--line)}
+.award-card{display:flex;flex-direction:column;gap:8px;width:250px;padding:22px 24px;border-radius:18px;
+  background:linear-gradient(135deg,#FFF6D9 0%,#FFE9A8 100%);border:1px solid #F3D57A;color:#000;text-decoration:none}
+.award-card .trophy{width:34px;height:34px;margin-bottom:4px}
+.award-title{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.1;color:#000}
+.award-sub{font-size:15px;color:var(--text)}
+.award-link{font-size:14px;font-weight:500;color:#000;white-space:nowrap;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.award-card:hover{border-color:#FFCC00}
+.award-card:hover .award-link{text-decoration-color:var(--love);text-decoration-thickness:2px}
+/* What you leave with: colour */
+.card-blue{background:#E2F6FF;border-top:6px solid var(--blue)}
+.card-green{background:#D9FAF1;border-top:6px solid #00DBA7}
+.card-blue .ticks li::before{background:#2FA8D8}
+.card-green .ticks li::before{background:#00A87F}
+/* Mid-page call to action */
+.close-lead{font-size:19px;color:var(--text);max-width:34em}
+.close .quick-link{font-size:16px;font-weight:500}
+/* Button after the FAQ */
+.faq-cta{display:flex;justify-content:center;margin-top:48px}
+@media (max-width:640px){
+  .research .wrap{padding-top:56px;padding-bottom:48px;gap:24px}
+  .proof .stats{flex:none}
+  .proof-div{width:100%;height:1px;align-self:auto}
+  .award-card{width:100%}
+  .faq-cta .btn{width:100%}
+  .close .quick-link{text-align:center}
 }
 </style>
 </head>
@@ -236,8 +275,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
         <p class="lead">Explore your Ikigai, or life purpose, in an interactive AI-enhanced reflection.</p>
         <div class="cta-block">
           <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
-          <p class="cta-note">Access paid for you by our donor.</p>
-          <a class="quick-link" href="ikigai-test.html">Only got 30 seconds? Try the quick test &rarr;</a>
+          <p class="cta-note">Access paid for you by our donors.</p>
         </div>
       </div>
 
@@ -271,26 +309,50 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     </div>
   </section>
 
-  <!-- Proof strip. Figures from the 2026 GMA Award application; reconcile before launch. -->
-  <section class="proof v-center" aria-label="Ikigai+ in numbers">
+  <!-- Research and credentials -->
+  <section class="research">
+    <div class="wrap">
+      <div class="intro">
+        <h2 class="h2">Based on 5 years of research by the Learning Planet Institute</h2>
+        <p>Ikigai+ grew out of research and practice at the Learning Planet Institute in Paris. Early results show participants reporting more meaning in life and greater life satisfaction.</p>
+      </div>
+      <div class="creds">
+        <!-- Desktop: original lockup image -->
+        <img class="creds-desktop" src="./assets/lpi-lockup-en.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub.">
+        <!-- Mobile: original stacked logos -->
+        <div class="creds-mobile">
+          <img src="./assets/lpi-logo.png" alt="Learning Planet Institute" style="width:150px">
+          <div class="cred-row"><span>Is a UNESCO Category 2 Institute</span><img src="./assets/unesco-logo.png" alt="UNESCO" style="width:120px"></div>
+          <div class="cred-row"><span>Is a United Nations University Hub</span><img src="./assets/unu-logo.png" alt="United Nations University" style="width:100px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof strip -->
+  <section class="proof" aria-label="Ikigai+ in numbers">
     <div class="wrap">
       <div class="stats">
         <div class="stat"><b>12,700+</b><span>people have taken part</span></div>
         <div class="stat"><b>5+</b><span>years of research</span></div>
         <div class="stat"><b>80%</b><span>would recommend it to their friends</span></div>
       </div>
+      <span class="proof-div" aria-hidden="true"></span>
+      <a class="award-card" href="https://mooc.global/awards/global-mooc-online/" target="_blank" rel="noopener">
+        <svg class="trophy" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4a5 5 0 0 1-10 0V3z" fill="#FFCC00" stroke="#7A5300" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 5H4v1.5A3.5 3.5 0 0 0 7.5 10M17 5h3v1.5A3.5 3.5 0 0 1 16.5 10" fill="none" stroke="#7A5300" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 12h4v3.5h-4z" fill="#FFCC00" stroke="#7A5300" stroke-width="1.7" stroke-linejoin="round"/><path d="M7.5 20.5h9v-2.5a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1z" fill="#FFCC00" stroke="#7A5300" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <span class="award-title">2026 Global MOOC Award</span>
+        <span class="award-sub">Awarded to Ikigai+</span>
+        <span class="award-link">See the award ↗</span>
+      </a>
     </div>
   </section>
-  <div class="wrap under-proof">
-      <a class="award-line" href="https://mooc.global/awards/global-mooc-online/" target="_blank" rel="noopener"><svg class="trophy" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4a5 5 0 0 1-10 0V3z" fill="#FFCC00" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 5H4v1.5A3.5 3.5 0 0 0 7.5 10M17 5h3v1.5A3.5 3.5 0 0 1 16.5 10M12 12v4M8.5 20h7M9.5 20l.5-4h4l.5 4" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>2026 GMA Award</span></a>
-  </div>
 
   <!-- 2. How it works -->
   <section class="section">
     <div class="wrap">
       <div class="intro">
         <h2 class="h2">How it works</h2>
-        <p>An AI guide called Spark asks you questions, one step at a time. You answer in your own words, by typing or talking.</p>
+        <p>An AI guide navigates you through reflective questions, one step at a time. You answer in your own words, by typing or talking.</p>
       </div>
       <ol class="steps">
         <li><span>Name what you love</span></li>
@@ -300,8 +362,6 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
         <li><span>Turn it into a project or job idea</span></li>
         <li><span>Choose a first step for this week</span></li>
       </ol>
-      <ul class="facts" aria-label="At a glance"><li style="--c:var(--love)">1 hour</li><li style="--c:var(--good)">100% free</li><li style="--c:var(--world)">Your personal game plan</li><li style="--c:var(--paid)">A verified certificate</li></ul>
-      <p class="intro-note">At the start and at the end, you answer 12 quick questions, so you can see how your thinking progressed.</p>
     </div>
   </section>
 
@@ -310,8 +370,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     <div class="wrap">
       <h2 class="h2">What you leave with</h2>
       <div class="cards">
-        <div class="card">
-          <span class="kicker">To keep and come back to</span>
+        <div class="card card-blue">
           <h3>Your personal game plan</h3>
           <ul class="ticks">
             <li>Your best ideas, in your own words</li>
@@ -319,8 +378,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
             <li>Three paths to explore (studies, projects or jobs), each with a first step and where it could lead</li>
           </ul>
         </div>
-        <div class="card">
-          <span class="kicker">To show others</span>
+        <div class="card card-green">
           <h3>Your Ikigai certificate</h3>
           <ul class="ticks">
             <li>Issued by a UNESCO Category 2 Centre</li>
@@ -333,40 +391,46 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
     </div>
   </section>
 
-  <!-- 4. Who's behind it -->
-  <section class="section">
+  <!-- Call to action -->
+  <section class="close">
     <div class="wrap">
-      <h2 class="h2">Who's behind Ikigai+</h2>
-      <div class="creds">
-        <!-- Desktop: original lockup image -->
-        <img class="creds-desktop" src="./assets/lpi-lockup-en.png" alt="Learning Planet Institute. Is a UNESCO Category 2 Institute. Is a United Nations University Hub.">
-        <!-- Mobile: original stacked logos -->
-        <div class="creds-mobile">
-          <img src="./assets/lpi-logo.png" alt="Learning Planet Institute" style="width:150px">
-          <div class="cred-row"><span>Is a UNESCO Category 2 Institute</span><img src="./assets/unesco-logo.png" alt="UNESCO" style="width:120px"></div>
-          <div class="cred-row"><span>Is a United Nations University Hub</span><img src="./assets/unu-logo.png" alt="United Nations University" style="width:100px"></div>
-        </div>
+      <div class="close-cta">
+        <h2>Start with <em>one hour.</em></h2>
+        <p class="close-lead">Clarify your Ikigai, create a game plan and get a verified certificate.</p>
+        <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
+        <p class="cta-note">Access paid for you by our donors.</p>
+        <a class="quick-link" href="ikigai-test.html">Not ready for an hour? Try the 30-second&nbsp;test&nbsp;&rarr;</a>
       </div>
+    </div>
+  </section>
+
+  <!-- 4. Part of something larger -->
+  <section class="section alt">
+    <div class="wrap">
+      <h2 class="h2">Ikigai+ is part of something larger</h2>
       <div class="who-text">
-        <p>Ikigai+ was created by the Learning Planet Institute in Paris, which has spent 20 years inventing new ways to learn. With UNESCO and the United Nations University, we're building a Planetary Academy for young people who want to help tackle the world's big challenges.</p>
-        <p>Ikigai+ is part of the MOOD programme. <a href="https://www.learningplanetinstitute.org/en/programs/inthemood-climate/" target="_blank" rel="noopener" style="font-weight:500">Explore MOOD</a></p>
+        <p>Participants that finish Ikigai+ can apply to a free online program, welcoming participants from all around the world to work together on climate-related challenges. Explore the <a href="https://www.learningplanetinstitute.org/en/programs/inthemood-climate/" target="_blank" rel="noopener">MOOD</a>.</p>
       </div>
     </div>
   </section>
 
   <!-- 5. Questions -->
-  <section class="section alt">
+  <section class="section">
     <div class="wrap">
       <h2 class="h2">Questions</h2>
       <div class="faq">
         <div class="faq-col">
           <details>
             <summary>Is it really free?</summary>
-            <p>Yes. No payment, no trial, no card details. Your access is paid for by our donor.</p>
+            <p>Your access is paid for by our donors. Each test is worth €10. With this version, no payment, no trial and no card details are required.</p>
           </details>
           <details>
             <summary>Do I need an account?</summary>
-            <p>Yes, a free one. It saves your game plan and your certificate, and lets you stop and pick up where you left off.</p>
+            <p>Yes, a free and secure one. It saves your game plan and your certificate, and lets you stop and pick up where you left off.</p>
+          </details>
+          <details>
+            <summary>What happens to my data?</summary>
+            <p>Your answers stay yours. Ikigai+ follows GDPR, the EU's data protection rules: you can download or delete your data at any time. We never sell your data or use it for ads. For research, we only use anonymised, grouped results, so no one can identify you.</p>
           </details>
           <details>
             <summary>What if I have no idea what I want to do?</summary>
@@ -374,14 +438,14 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           </details>
           <details>
             <summary>Is it a personality test, or therapy?</summary>
-            <p>Neither. There are no types, scores or labels, and it isn't therapy or coaching. You leave with ideas to explore and talk through, not predictions about your future.</p>
-          </details>
-          <details>
-            <summary>Is it AI?</summary>
-            <p>Yes. An AI guide called Spark asks the questions and writes your game plan from your answers. It reflects your own thinking back to you instead of telling you what to do, and your game plan clearly marks which parts are ideas to explore.</p>
+            <p>Neither. There are no types, scores or labels. Ikigai+ doesn't diagnose, prescribe or act as a suitable replacement for therapy. The tool helps structure your own thinking, ask questions and show possibilities. Always use your own critical thinking and experience.</p>
           </details>
         </div>
         <div class="faq-col">
+          <details>
+            <summary>Is it AI?</summary>
+            <p>Yes. An AI guide asks the questions and writes your game plan from your answers. It reflects your thinking back to you, and marks which parts are ideas to explore.</p>
+          </details>
           <details>
             <summary>Is the certificate real?</summary>
             <p>Yes. It's issued by the Learning Planet Institute through BCdiploma. Anyone can check it by scanning its QR code. It shows you completed Ikigai+.</p>
@@ -391,12 +455,8 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
             <p>Anyone aged 18 or over can sign up on their own. Under 18? You can take it through your school or a programme, with a teacher.</p>
           </details>
           <details>
-            <summary>What happens to my data?</summary>
-            <p>Your answers stay yours. Ikigai+ follows GDPR, the EU's data protection rules: you can download or delete your data at any time. We never sell your data or use it for ads. For research, we only use anonymised, grouped results, so no one can identify you.</p>
-          </details>
-          <details>
             <summary>Can I do it in another language?</summary>
-            <p>Yes. Spark replies in the language you write in, so you can do it in French, Spanish and many other languages.</p>
+            <p>Yes. The AI guide replies in the language you write in, so you can do it in French, Spanish and many other languages.</p>
           </details>
           <details>
             <summary>What do I need?</summary>
@@ -404,19 +464,12 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           </details>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 6. Closing call to action -->
-  <section class="close">
-    <div class="wrap">
-      <div class="close-cta">
-        <h2>Start with <em>one hour.</em></h2>
+      <div class="faq-cta">
         <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
-        <p class="cta-note">Access paid for you by our donor.</p>
       </div>
     </div>
   </section>
+
 </main>
 
 <!-- Footer -->
