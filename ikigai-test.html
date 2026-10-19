@@ -167,6 +167,48 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .islands li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
 .intro .lead b{color:#000;font-weight:700}
 .close-text .funded{font-size:15px;color:var(--muted)}
+
+:root{
+  /* ===== Type system: 7 roles, 6 sizes. Change a size here and it changes everywhere. ===== */
+  --t-title:76px;  /* 1 Page title            Archivo Narrow 400, key words 700 italic */
+  --t-head:48px;   /* 2 Section heading       Archivo Narrow 700 italic                */
+                   /* 3 Numbers               Archivo Narrow 700, same size as headings */
+  --t-sub:24px;    /* 4 Sub-heading           Archivo Narrow 700                       */
+  --t-lead:20px;   /* 5 Lead text             Roboto 400                               */
+  --t-body:17px;   /* 6 Body text             Roboto 400 (buttons 700, links 500)      */
+  --t-small:14px;  /* 7 Small text            Roboto 400 (labels 500, tags 700)        */
+}
+@media (max-width:640px){:root{--t-title:48px;--t-head:36px;--t-sub:21px;--t-lead:18px;--t-body:16px;--t-small:14px}}
+
+/* 1 Page title */
+.hero h1,.intro h1{font-family:var(--display);font-size:var(--t-title);font-weight:400;line-height:1.02}
+.hero h1 em,.intro h1 em{font-weight:700;font-style:italic}
+/* 2 Section heading */
+.h2,.close h2{font-family:var(--display);font-size:var(--t-head);font-weight:700;font-style:italic;line-height:1.05}
+/* 5 Lead */
+.lead,.intro p,.close-lead,.who-text p,.close-text p{font-family:var(--body);font-size:var(--t-lead);font-weight:400;line-height:1.5}
+/* 6 Body */
+.btn{font-size:var(--t-body);font-weight:700}
+.quick-link,.learn-more,.close .quick-link,.close .learn-more{font-size:var(--t-body);font-weight:500}
+/* 7 Small */
+.cta-note,.define,.footer-text p,.site-footer .footer-link,.close-text .funded{font-size:var(--t-small);line-height:1.55}
+.site-footer .footer-link{font-weight:500}
+/* Secondary button: outline, lighter weight */
+.btn-secondary{background:transparent;color:#000;border:1.5px solid #000;font-weight:500}
+.btn-secondary:hover{background:rgba(0,0,0,.06);color:#000}
+
+/* 4 Sub-heading */
+.result h2{font-family:var(--display);font-size:var(--t-sub);font-weight:700;line-height:1.2}
+/* 6 Body */
+.row label,.howto,.result .body{font-size:var(--t-body);line-height:1.55}
+/* 7 Small */
+.result .summary,.result .note,.legend,.islands li{font-size:var(--t-small)}
+.islands li{font-weight:500}
+.eyebrow,.tag{font-size:12px}
+/* Logo wordmark: one size everywhere */
+.wordmark,.footer-mark{font-size:30px}
+/* Tags and eyebrow labels use the small size too */
+.eyebrow,.tag{font-size:var(--t-small)}
 </style>
 </head>
 <body>

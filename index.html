@@ -58,8 +58,9 @@ p{margin:0}
 /* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(60% 55% at 78% 42%,rgba(255,204,0,.22),rgba(255,204,0,0) 70%),
-             radial-gradient(40% 40% at 10% 100%,rgba(255,148,115,.10),rgba(255,148,115,0) 70%)}
+  /* Each glow sits in its own box and fades to zero before that box's edges, so no hard lines */
+  background:radial-gradient(closest-side,rgba(255,204,0,.24),rgba(255,204,0,.10) 50%,rgba(255,204,0,.03) 80%,rgba(255,204,0,0)) 100% 50% / 72% 100% no-repeat,
+             radial-gradient(closest-side,rgba(255,148,115,.12),rgba(255,148,115,.05) 50%,rgba(255,148,115,0)) 0% 70% / 46% 70% no-repeat}
 .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center;padding-top:48px;padding-bottom:88px}
 .hero-text{display:flex;flex-direction:column;gap:26px}
 .hero h1{font-weight:400;font-size:clamp(46px,6.6vw,80px);line-height:1.02;letter-spacing:-.01em}
@@ -253,6 +254,58 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
   .faq-cta .btn{width:100%}
   .close .quick-link{text-align:center}
 }
+
+:root{
+  /* ===== Type system: 7 roles, 6 sizes. Change a size here and it changes everywhere. ===== */
+  --t-title:76px;  /* 1 Page title            Archivo Narrow 400, key words 700 italic */
+  --t-head:48px;   /* 2 Section heading       Archivo Narrow 700 italic                */
+                   /* 3 Numbers               Archivo Narrow 700, same size as headings */
+  --t-sub:24px;    /* 4 Sub-heading           Archivo Narrow 700                       */
+  --t-lead:20px;   /* 5 Lead text             Roboto 400                               */
+  --t-body:17px;   /* 6 Body text             Roboto 400 (buttons 700, links 500)      */
+  --t-small:14px;  /* 7 Small text            Roboto 400 (labels 500, tags 700)        */
+}
+@media (max-width:640px){:root{--t-title:48px;--t-head:36px;--t-sub:21px;--t-lead:18px;--t-body:16px;--t-small:14px}}
+
+/* 1 Page title */
+.hero h1,.intro h1{font-family:var(--display);font-size:var(--t-title);font-weight:400;line-height:1.02}
+.hero h1 em,.intro h1 em{font-weight:700;font-style:italic}
+/* 2 Section heading */
+.h2,.close h2{font-family:var(--display);font-size:var(--t-head);font-weight:700;font-style:italic;line-height:1.05}
+/* 5 Lead */
+.lead,.intro p,.close-lead,.who-text p,.close-text p{font-family:var(--body);font-size:var(--t-lead);font-weight:400;line-height:1.5}
+/* 6 Body */
+.btn{font-size:var(--t-body);font-weight:700}
+.quick-link,.learn-more,.close .quick-link,.close .learn-more{font-size:var(--t-body);font-weight:500}
+/* 7 Small */
+.cta-note,.define,.footer-text p,.site-footer .footer-link,.close-text .funded{font-size:var(--t-small);line-height:1.55}
+.site-footer .footer-link{font-weight:500}
+/* Secondary button: outline, lighter weight */
+.btn-secondary{background:transparent;color:#000;border:1.5px solid #000;font-weight:500}
+.btn-secondary:hover{background:rgba(0,0,0,.06);color:#000}
+
+/* 3 Numbers */
+.stat b,.award-stat b{font-family:var(--display);font-size:var(--t-head);font-weight:700;line-height:1}
+.stat span{font-size:var(--t-small);line-height:1.45}
+/* 4 Sub-heading */
+.card h3,.steps li span,.faq summary{font-family:var(--display);font-size:var(--t-sub);font-weight:700;line-height:1.2}
+/* 6 Body */
+.ticks li,.faq details p{font-size:var(--t-body);line-height:1.6}
+/* Award as a fourth number (3C) */
+.award-stat{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit}
+.award-stat b{display:flex;align-items:center;gap:12px;color:#000}
+.award-stat .badge{width:1em;height:1em;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
+.award-stat .badge .trophy{width:.62em;height:.62em}
+.award-stat .badge .trophy path:first-child{fill:#fff}
+.award-stat .award-cap{font-size:var(--t-small);font-weight:500;color:#000;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.award-stat:hover .award-cap{text-decoration-color:var(--love);text-decoration-thickness:2px}
+.final-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+@media (max-width:640px){.final-cta{flex-direction:column}.final-cta .btn{width:100%}}
+/* Logo wordmark: one size everywhere */
+.wordmark,.footer-mark{font-size:30px}
+/* Tags and eyebrow labels use the small size too */
+.eyebrow,.tag{font-size:var(--t-small)}
+.cred-row span{font-size:var(--t-sub)}
 </style>
 </head>
 <body>
@@ -271,11 +324,12 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
   <section class="hero">
     <div class="wrap">
       <div class="hero-text">
-        <h1>One hour to figure out <em>what matters to you.</em></h1>
+        <h1>One hour to figure out <em>what matters to&nbsp;you.</em></h1>
         <p class="lead">Explore your Ikigai, or life purpose, in an interactive AI-enhanced reflection.</p>
         <div class="cta-block">
           <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
           <p class="cta-note">Access paid for you by our donors.</p>
+          <a class="quick-link" href="ikigai-test.html">Not ready for an hour? Try the 30&#8209;second&nbsp;test&nbsp;&rarr;</a>
         </div>
       </div>
 
@@ -338,12 +392,7 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
         <div class="stat"><b>80%</b><span>would recommend it to their friends</span></div>
       </div>
       <span class="proof-div" aria-hidden="true"></span>
-      <a class="award-card" href="https://mooc.global/awards/global-mooc-online/" target="_blank" rel="noopener">
-        <svg class="trophy" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4a5 5 0 0 1-10 0V3z" fill="#FFCC00" stroke="#7A5300" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 5H4v1.5A3.5 3.5 0 0 0 7.5 10M17 5h3v1.5A3.5 3.5 0 0 1 16.5 10" fill="none" stroke="#7A5300" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 12h4v3.5h-4z" fill="#FFCC00" stroke="#7A5300" stroke-width="1.7" stroke-linejoin="round"/><path d="M7.5 20.5h9v-2.5a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1z" fill="#FFCC00" stroke="#7A5300" stroke-width="1.7" stroke-linejoin="round"/></svg>
-        <span class="award-title">2026 Global MOOC Award</span>
-        <span class="award-sub">Awarded to Ikigai+</span>
-        <span class="award-link">See the award ↗</span>
-      </a>
+      <a class="award-stat" href="https://mooc.global/awards/global-mooc-online/" target="_blank" rel="noopener"><b><span class="badge"><svg class="trophy" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4a5 5 0 0 1-10 0V3z" fill="#FFCC00" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 5H4v1.5A3.5 3.5 0 0 0 7.5 10M17 5h3v1.5A3.5 3.5 0 0 1 16.5 10M12 12v4M8.5 20h7M9.5 20l.5-4h4l.5 4" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2026</b><span class="award-cap">Global MOOC Award ↗</span></a>
     </div>
   </section>
 
@@ -395,27 +444,16 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
   <section class="close">
     <div class="wrap">
       <div class="close-cta">
-        <h2>Start with <em>one hour.</em></h2>
+        <h2>You've spent longer wondering.<br>Give it <em>one hour.</em></h2>
         <p class="close-lead">Clarify your Ikigai, create a game plan and get a verified certificate.</p>
         <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
         <p class="cta-note">Access paid for you by our donors.</p>
-        <a class="quick-link" href="ikigai-test.html">Not ready for an hour? Try the 30-second&nbsp;test&nbsp;&rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Part of something larger -->
-  <section class="section alt">
-    <div class="wrap">
-      <h2 class="h2">Ikigai+ is part of something larger</h2>
-      <div class="who-text">
-        <p>Participants that finish Ikigai+ can apply to a free online program, welcoming participants from all around the world to work together on climate-related challenges. Explore the <a href="https://www.learningplanetinstitute.org/en/programs/inthemood-climate/" target="_blank" rel="noopener">MOOD</a>.</p>
       </div>
     </div>
   </section>
 
   <!-- 5. Questions -->
-  <section class="section">
+  <section class="section alt">
     <div class="wrap">
       <h2 class="h2">Questions</h2>
       <div class="faq">
@@ -464,8 +502,19 @@ details p{padding:0 0 22px;font-size:17px;max-width:36em}
           </details>
         </div>
       </div>
-      <div class="faq-cta">
-        <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started</a>
+    </div>
+  </section>
+
+  <!-- 6. Part of something larger -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="h2">Ikigai+ is part of something larger</h2>
+      <div class="who-text">
+        <p>Participants that finish Ikigai+ can apply to a free online program, welcoming participants from all around the world to work together on climate-related challenges.</p>
+      </div>
+      <div class="final-cta">
+        <a class="btn btn-primary" href="https://go.ikigai.learningplanetinstitute.org/">Get started with Ikigai+</a>
+        <a class="btn btn-secondary" href="https://www.learningplanetinstitute.org/en/programs/inthemood-climate/" target="_blank" rel="noopener">Explore the MOOD ↗</a>
       </div>
     </div>
   </section>
