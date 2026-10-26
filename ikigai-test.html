@@ -210,6 +210,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 /* Tags and eyebrow labels use the small size too */
 .eyebrow,.tag{font-size:var(--t-small)}
 </style>
+<!-- Umami: anonymous, cookie-free visit and click statistics (counts only on the official domain) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="b8616b6a-2204-4225-a733-4602ca8429a8" data-domains="ikigai.mood.learningplanetinstitute.org"></script>
 </head>
 <body>
 
@@ -264,7 +266,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
             <text class="lbl" x="200" y="338"><tspan x="200">What the</tspan><tspan x="200" dy="20">world needs</tspan></text>
             <text class="lbl" x="58" y="182"><tspan x="58">What you</tspan><tspan x="58" dy="20">can be</tspan><tspan x="58" dy="20">paid for</tspan></text>
           </svg>
-          <button type="button" class="reveal-btn" id="reveal"><span class="sym" aria-hidden="true">&#10022;</span>Reveal</button>
+          <button type="button" class="reveal-btn" id="reveal" data-umami-event="test-reveal"><span class="sym" aria-hidden="true">&#10022;</span>Reveal</button>
         </div>
       </div>
 
@@ -282,8 +284,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
           <p class="funded">Funded by donors, free for learners.</p>
         </div>
         <div class="close-cta">
-          <a class="btn btn-primary" href="https://app.ikigai.learningplanetinstitute.org/">Try the free 1-hour Ikigai+</a>
-          <a class="learn-more" href="index.html">Learn more</a>
+          <a class="btn btn-primary" href="https://app.ikigai.learningplanetinstitute.org/" data-umami-event="test-try-1-hour">Try the free 1-hour Ikigai+</a>
+          <a class="learn-more" href="index.html" data-umami-event="test-learn-more">Learn more</a>
         </div>
       </div>
     </div>
